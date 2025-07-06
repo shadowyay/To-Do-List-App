@@ -1,8 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const { postTask } = require("../controllers/taskController");
+const { createTask,seeTask } = require("../controllers/taskController");
+const validateToken = require("../middleware/validateTokenHandler");
 
-// POST /api/tasks - Add a new task
-router.route("/").post(postTask);
+router.use(validateToken)
+router.route("/").post(createTask);
+router.route("/").get(seeTask);
 
 module.exports = router;
