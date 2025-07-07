@@ -24,7 +24,6 @@ const registerUser = asyncHandler(async(req,res) => {
     });
 
     console.log(`User created ${user}`)
-    res.json({message:"Register User"});
     if (user){
         res.status(201).json({_id: (await user).id,email: user.email})
     } else {

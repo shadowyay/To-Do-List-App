@@ -186,12 +186,21 @@ a:hover {
     transform: translateY(-1px);
 }
 
-#task-list li button.edit-button {
+#task-list li button.edit-btn {
     background-color: var(--accent-color);
+    margin-right: 10px;
 }
 
-#task-list li button.edit-button:hover {
+#task-list li button.edit-btn:hover {
     background-color: #218838;
+}
+
+#task-list li button.delete-btn {
+    background-color: #dc3545;
+}
+
+#task-list li button.delete-btn:hover {
+    background-color: #c82333;
 }
 
 @media (max-width: 768px) {
