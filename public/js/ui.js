@@ -12,12 +12,6 @@ const createTaskForm = document.getElementById('create-task');
 const showRegister = document.getElementById('show-register');
 const showLogin = document.getElementById('show-login');
 
-const showSection = (section) => {
-    loginSection.style.display = 'none';
-    registerSection.style.display = 'none';
-    tasksSection.style.display = 'none';
-    section.style.display = 'block';
-};
 
 const displayTasks = (tasks) => {
     taskList.innerHTML = '';
@@ -35,6 +29,13 @@ const displayTasks = (tasks) => {
     });
 };
 
+const showSection = (section) => {
+    loginSection.classList.add('hidden');
+    registerSection.classList.add('hidden');
+    tasksSection.classList.add('hidden');
+    section.classList.remove('hidden');
+};
+
 const ui = {
     loginSection,
     registerSection,
@@ -47,8 +48,8 @@ const ui = {
     createTaskForm,
     showRegister,
     showLogin,
-    showSection,
     displayTasks,
+    showSection,
 };
 
 export default ui;
