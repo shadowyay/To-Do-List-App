@@ -6,28 +6,27 @@ const handleRouting = () => {
     const token = localStorage.getItem('token');
     const currentPage = window.location.pathname.split('/').pop();
     if (token && currentPage === 'login.html') {
-        window.location.href = 'index.html';
+        window.location.href = 'html/index.html';
         return;
     }
     if (!token && currentPage === 'index.html') {
-        window.location.href = 'login.html';
+        window.location.href = 'html/login.html';
         return;
     }
 };
 
-ui.showRegister.addEventListener("click",(e)=>{
-    e.preventDefault();
-    ui.loginSection.classList.add("hidden");
-    ui.registerSection.classList.remove("hidden");
-});
-
-ui.showLogin.addEventListener("click",(e)=>{
-    e.preventDefault();
-    ui.loginSection.classList.remove("hidden");
-    ui.registerSection.classList.add("hidden");
-});
-
 const initializeLoginRegisterEventListeners = () => {
+    ui.showRegister.addEventListener("click",(e)=>{
+        e.preventDefault();
+        ui.loginSection.classList.add("hidden");
+        ui.registerSection.classList.remove("hidden");
+    });
+    
+    ui.showLogin.addEventListener("click",(e)=>{
+        e.preventDefault();
+        ui.loginSection.classList.remove("hidden");
+        ui.registerSection.classList.add("hidden");
+    });
     ui.loginForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const email = document.getElementById('login-email').value;
@@ -46,6 +45,9 @@ const initializeLoginRegisterEventListeners = () => {
 };
 
 const initializeTaskEventListeners = () => {
+    ui.logoutBtn.addEventListener('click', () => {
+        userAuth.logout();
+    });
     ui.createTaskForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const taskName = document.getElementById('task-name').value;
